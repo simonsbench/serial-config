@@ -696,7 +696,7 @@ def make_arduino_library(root_config):
         print(generate_config_header(root_config), file=f)
     with open("ardconfig.cpp", "w") as f:
         print(generate_library_file(root_config), file=f)
-        with open("ardlib.c.part", "r") as fread:
+        with open("arduino_src/ardlib.c.part", "r") as fread:
             f.write(fread.read())
 
 def make_js_schema(root_struct):

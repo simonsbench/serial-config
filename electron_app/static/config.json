@@ -1,0 +1,54 @@
+{
+    "label": "root",
+    "kind": "struct",
+    "fields": [],
+    "children": [
+        {
+            "label": "wireless_settings",
+            "kind": "struct",
+            "fields": [],
+            "children": [
+                {
+                    "kind": "list",
+                    "capacity": 255,
+                    "type": {
+                        "kind": "primitive",
+                        "type": "char",
+                        "value": 0
+                    },
+                    "items": [],
+                    "label": "network_ssid",
+                    "_accessor": 0
+                },
+                {
+                    "kind": "list",
+                    "capacity": 255,
+                    "type": {
+                        "kind": "primitive",
+                        "type": "char",
+                        "value": 0
+                    },
+                    "items": [],
+                    "label": "network_password",
+                    "_accessor": 1
+                }
+            ],
+            "_accessor": 0
+        },
+        {
+            "label": "sensor_settings",
+            "kind": "struct",
+            "fields": [
+                {
+                    "kind": "primitive",
+                    "type": "uint16_t",
+                    "value": 0,
+                    "label": "poll_interval_mins",
+                    "_accessor": 0
+                }
+            ],
+            "children": [],
+            "_accessor": 1
+        }
+    ]
+}

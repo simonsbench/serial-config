@@ -1,0 +1,30 @@
+# Logs
+electron_app/logs
+electron_app/*.log
+electron_app/npm-debug.log*
+electron_app/yarn-debug.log*
+electron_app/yarn-error.log*
+electron_app/pnpm-debug.log*
+electron_app/lerna-debug.log*
+
+electron_app/node_modules
+electron_app/dist
+electron_app/dist-ssr
+electron_app/dist-electron
+electron_app/release
+*.local
+
+# Editor directories and files
+.vscode/.debug.env
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# lockfile
+electron_app/package-lock.json
+electron_app/pnpm-lock.yaml
+electron_app/yarn.lock

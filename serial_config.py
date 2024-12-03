@@ -641,40 +641,6 @@ void store_config();
 
 /* Drop into checking for a serial update */
 bool handle_serial_update();
-
-// #define MAX_SUBSCRIPTIONS 10
-
-/* Function signature for a config edit callback notification
- *
- * Passes the base config tree pointer and int handle being referenced in the
- * subscribe call, and the config tree pointer changed in the edit.
- *
- * (The base tree pointer and the changed tree pointer will differ when the
- * recursive flag is set, and the base pointer is a collection in the path from
- * the config root to the changed field.)
- */
-//typedef void (*update_event)(void *base_treeref, int handle, void *changed_treeref);
-
-
-/* Subscribe to updates about config edits, at or below the tree reference.
- *
- * Returns an integer identifying the subscription, or -1 if MAX_SUBSCRIPTIONS
- * has been exceeded.
- *
- * Update callbacks are processed at the end of an update transaction, after
- * the config has been edited and committed.
- *
- * Set the recursive flag for edits made to collections or fields in the
- * subtree below the tree reference. Note that turning on recursive for any
- * subscription will prompt a config tree search for every edit; to check if
- * any edit is contained in a subtree subscription, the edit reference is
- * located in a full config tree iteration, then its reference path searched
- * for subscription updates. (Only one tree iteration is completed for each
- * commit.) Update performance for collection edits (lists, options, etc.) may
- * be higher performing than field edits.*/
-//int subscribe(void *base_treeref, int recursive, update_event cb);
-
-//void unsubscribe(int subscription);
 """ % (root_struct.refname,)
 
     return header

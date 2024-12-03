@@ -1,5 +1,5 @@
 <template>
-  <div class="recursivelabel" :style="css_props">
+  <div class="schemanode" :style="css_props">
     <div class="hierarchyEntry">
       <p @click="toggle_display_children" :class="arrow_classes"> {{ arrow }} </p>
       <p @click="select()" :class="selected_classes"> {{ navigation_label }} </p>
@@ -12,19 +12,19 @@
                        @struct_field_edited="struct_field_edited"/>
       </div>
       <div v-show="display_children" class="conditionalStuff">
-        <RecursiveLabel v-for="(childnode, index) in node.children"
-                        :key="index"
-                        :node="childnode"
-                        :level="level+1"
-                        :ctx="ctx"
-                        @selected_node="select_node"
-                        @list_element_edited="list_element_edited"
-                        @list_element_up="list_element_up"
-                        @list_element_down="list_element_down"
-                        @list_element_delete="list_element_delete"
-                        @list_as_string_edited="list_as_string_edited"
-                        @list_element_added="list_element_added"
-                        @struct_field_edited="struct_field_edited"/>
+        <SchemaNode v-for="(childnode, index) in node.children"
+                    :key="index"
+                    :node="childnode"
+                    :level="level+1"
+                    :ctx="ctx"
+                    @selected_node="select_node"
+                    @list_element_edited="list_element_edited"
+                    @list_element_up="list_element_up"
+                    @list_element_down="list_element_down"
+                    @list_element_delete="list_element_delete"
+                    @list_as_string_edited="list_as_string_edited"
+                    @list_element_added="list_element_added"
+                    @struct_field_edited="struct_field_edited"/>
       </div>
     </div>
     <!-- list handling -->
@@ -42,20 +42,20 @@
       </div>
       <!-- list type is a collection, so we have sub-entries we can list in the tree -->
       <div v-if="node.type.kind != 'primitive'" v-show="display_children" class="conditionalStuff">
-        <RecursiveLabel v-for="(item, index) in node.items"
-                        :key="index"
-                        :node="item"
-                        :label="String(index)"
-                        :level="level+1"
-                        :ctx="ctx"
-                        @selected_node="select_node"
-                        @list_element_edited="list_element_edited"
-                        @list_element_up="list_element_up"
-                        @list_element_down="list_element_down"
-                        @list_element_delete="list_element_delete"
-                        @list_as_string_edited="list_as_string_edited"
-                        @list_element_added="list_element_added"
-                        @struct_field_edited="struct_field_edited"/>
+        <SchemaNode v-for="(item, index) in node.items"
+                    :key="index"
+                    :node="item"
+                    :label="String(index)"
+                    :level="level+1"
+                    :ctx="ctx"
+                    @selected_node="select_node"
+                    @list_element_edited="list_element_edited"
+                    @list_element_up="list_element_up"
+                    @list_element_down="list_element_down"
+                    @list_element_delete="list_element_delete"
+                    @list_as_string_edited="list_as_string_edited"
+                    @list_element_added="list_element_added"
+                    @struct_field_edited="struct_field_edited"/>
       </div>
     </div>
   </div>
@@ -66,7 +66,7 @@ import DisplayStruct from "./DisplayStruct.vue"
 import DisplayList from './DisplayList.vue'
 
 export default {
-  name: 'RecursiveLabel',
+  name: 'SchemaNode',
   components: {
     DisplayStruct,
     DisplayList,

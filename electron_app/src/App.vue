@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="hierarchyNavigator">
-    <RecursiveLabel :node="schema"
+    <SchemaNode :node="schema"
                     :level="0"
                     :ctx="ctx"
                     @selected_node="selected"
@@ -55,7 +55,7 @@
 
 <script>
 import { ref } from 'vue';
-import RecursiveLabel from './components/RecursiveLabel.vue';
+import SchemaNode from './components/SchemaNode.vue';
 import DisplayPort from './components/DisplayPort.vue';
 
 /* ------------------------
@@ -270,7 +270,7 @@ export default {
   },
   components: {
     DisplayPort,
-    RecursiveLabel,
+    SchemaNode,
   },
   methods: {
     schema_update() {
